@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Page {
+  id          Int     @id @unique @default(autoincrement())
+  name        String?
+  description String?
+  slug        String?
+  emoji       String?
+}
+
+model Section {
+  id           Int           @id @unique @default(autoincrement())
+  pageId       Int?
+  title        String?
+  description  String?
+  sortOrder    Int?
+  sectionItems SectionItem[]
+}
+
+model SectionItem {
+  id          Int     @id @unique @default(autoincrement())
+  section     Section @relation(fields: [sectionId], references: [id])
+  sectionId   Int
+  title       String?
+  description String?
+  sortOrder   Int?
+  years       Int?
+  src         String?
+  emoji       String?
+}

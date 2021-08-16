@@ -1,0 +1,37 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "eslint-config-prettier"],
+
+  "env": {
+    "node": true,
+    "es6": true,
+    "jasmine": true,
+    "browser": true
+  },
+
+  "parser": "babel-eslint",
+
+  "plugins": ["react-hooks"],
+
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "one-var": ["error", "never"],
+    "semi": ["error", "always"],
+    "no-var": "warn",
+    "quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error"
+  },
+
+  "parserOptions": {
+    "sourceType": "module"
+  },
+
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
